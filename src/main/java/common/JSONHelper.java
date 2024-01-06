@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class JSONHelper {
-    //comment
     public static String getJSONStringFromJsonFile(String filePath, String element) {
         try {
             JSONParser parser = new JSONParser();
