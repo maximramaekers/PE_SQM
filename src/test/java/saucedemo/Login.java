@@ -1,4 +1,4 @@
-package saucedemo.web;
+package saucedemo;
 
 public class Login {
 }
