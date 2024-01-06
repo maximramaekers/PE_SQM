@@ -13,6 +13,7 @@ public class LoginPageObject extends BasePageObject {
     By userTxtSelector = By.id("user-name");
     By passwordTxtSelector = By.id("password");
     By loginBtnSelector = By.id("login-button");
+    By errorMessageSelector = By.cssSelector("h3[data-test='error']");
 
     public LoginPageObject(WebDriver driver) {
         super(driver, "/");
@@ -54,7 +55,13 @@ public class LoginPageObject extends BasePageObject {
 
 
     public String getErrorMessage() {
-        return "cannot be found";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+            WebElement errorMessageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageSelector));
+            return errorMessageElement.getText();
+        } catch (TimeoutException e) {
+            return "No error message displayed"; // Or any other default message or handling you prefer
+        }
     }
 }
 
