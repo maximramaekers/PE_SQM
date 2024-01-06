@@ -5,7 +5,7 @@ import common.JSONHelper;
 import java.time.Duration;
 
 public class WebConfig {
-    private static final String webConfigJsonFile = "src/main/java/sauceLabs/web/webConfig.json";
+    private static final String webConfigJsonFile = "src/main/java/saucedemo/web/webConfig.json";
     public static String getDefaultBrowser(){
         return JSONHelper.getJSONStringFromJsonFile(webConfigJsonFile, "defaultBrowser");
     }

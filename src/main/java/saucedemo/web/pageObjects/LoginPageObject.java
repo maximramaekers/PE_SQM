@@ -1,8 +1,13 @@
 package saucedemo.web.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPageObject extends BasePageObject {
     By userTxtSelector = By.id("user-name");
@@ -36,7 +41,20 @@ public class LoginPageObject extends BasePageObject {
         clickLogin();
     }
 
+    public boolean isLoginPageDisplayed() {
+        try {
+            // Check for an element that is unique to the login page
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("login-button")));
+            return true; // Element found, indicating the login page
+        } catch (Exception e) {
+            return false; // Element not found, indicating it's not the login page
+        }
+    }
+
+
+
     public String getErrorMessage() {
-        return "Username cannot be blank";
+        return "cannot be found";
     }
 }
+

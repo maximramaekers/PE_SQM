@@ -1,5 +1,6 @@
 package saucedemo.web;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 import saucedemo.web.pageObjects.SauceLabPages;
 
@@ -10,6 +11,8 @@ public class LoginTests {
     final String username ="standard_user";
 
     SauceLabPages pages;
+
+
 
     @BeforeTest(alwaysRun = true)
     public void setup() {
@@ -27,23 +30,24 @@ public class LoginTests {
         pages.login.login(username, "secret_sauce");
     }
 
-    @AfterMethod
     public void logout() {
+        if (pages.inventory.isLogoutButtonPresentAndClickable()) {
+            pages.inventory.logout();
+        }
+    }
+
+    @Test
+    public void correctLogout() { //hoe precies implementeren? problemen met aftermethod, boolean zetten misschien
         pages.inventory.logout();
+        Assert.assertTrue(pages.login.isLoginPageDisplayed(), "Login page not displayed after logout");
     }
 
     @Test
-    public void correctLogin() {
-        pages.inventory.navigateTo();
-        //throw new RuntimeException("lmklm");
+    public void correctLogin(){
+        Assert.assertNotNull(pages.inventory.getLogoutBtnSelector(), "Logout button not found after login");
+        //pages.inventory.navigateTo();
         //assertThat("message").isEqualTo("other message");
-        assertWithMessage("Incorrect message was shown").that("message").isEqualTo("other message");
+        //assertWithMessage("Incorrect").that(azea).IsEqualTo("zae")... mogelijk veel meer info
         //System.out.println("test");
-    }
-
-    @Test
-    public void correctLogin2() {
-        pages.inventory.navigateTo();
-        System.out.println("test2");
     }
 }

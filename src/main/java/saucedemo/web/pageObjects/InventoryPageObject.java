@@ -1,6 +1,7 @@
 package saucedemo.web.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,7 +17,7 @@ public class InventoryPageObject extends BasePageObject{
     }
 
     public void openMenu() {
-        WebElement hamburgerMenu = driver.findElement(menuSelector);
+        WebElement hamburgerMenu = wait.until(ExpectedConditions.elementToBeClickable(menuSelector));
         hamburgerMenu.click();
     }
 
@@ -28,5 +29,20 @@ public class InventoryPageObject extends BasePageObject{
     public void logout() {
         openMenu();
         clickLogout();
+    }
+
+    public By getLogoutBtnSelector() {
+        return logoutBtnSelector;
+    }
+
+    public boolean isLogoutButtonPresentAndClickable() {
+        try {
+            // Replace with the actual method to wait for the logout button to be clickable
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(getLogoutBtnSelector()));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 }
