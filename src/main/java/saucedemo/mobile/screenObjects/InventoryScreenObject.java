@@ -12,7 +12,12 @@ import java.time.Duration;
 
 public class InventoryScreenObject extends BaseAppiumPageObject {
     By menuSelector = By.cssSelector("#react-burger-menu-btn");
+    By itemTitleSelector = By.cssSelector(".inventory_item_name");
     By logoutBtnSelector = By.id("logout_sidebar_link");
+    By goToShoppingBasketSelector = By.cssSelector(".shopping_cart_container");
+
+
+
     public InventoryScreenObject(AppiumDriver driver) {
         super(driver, "/inventory.html");
     }
@@ -20,6 +25,10 @@ public class InventoryScreenObject extends BaseAppiumPageObject {
     public void openMenu() {
         WebElement hamburgerMenu = wait.until(ExpectedConditions.elementToBeClickable(menuSelector));
         hamburgerMenu.click();
+    }
+    public void clickItemTitle() {
+        WebElement itemTitle = wait.until(ExpectedConditions.elementToBeClickable(itemTitleSelector));
+        itemTitle.click();
     }
 
     public void clickLogout() {
@@ -45,5 +54,15 @@ public class InventoryScreenObject extends BaseAppiumPageObject {
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public boolean isOnInventoryPage(){
+        String currentUrl = driver.getCurrentUrl();
+        return currentUrl.contains("/inventory.html");
+    }
+
+    public void clickShoppingCart() {
+        WebElement shoppingCart = wait.until(ExpectedConditions.elementToBeClickable(goToShoppingBasketSelector));
+        shoppingCart.click();
     }
 }
