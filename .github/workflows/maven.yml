@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '11'  # Java 20 is not a standard version, use a LTS version like 11 or 17
+          java-version: '20'
 
       - name: Cache Maven dependencies
         uses: actions/cache@v2
@@ -30,17 +30,20 @@ jobs:
       - name: Install Chrome
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+          wget https://dl.google.com/linux/chrome/rpm/stable/x86_64/google-chrome-stable-114.0.5735.198-1.x86_64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          sudo apt-get install -f
+          google-chrome-stable --version
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Set up ChromeDriver
+        uses: nanasess/setup-chromedriver@v2.2.1
         with:
-          node-version: '14'
+          chromedriver-version: '114.0.5735.90'
 
-      - name: Start Appium server
+      - name: Start Appium Server
         run: |
-          npm install -g appium
-          appium &
+          # Add commands to start Appium server here
+          # Example: appium &
 
       - name: Build and test
         run: mvn test
