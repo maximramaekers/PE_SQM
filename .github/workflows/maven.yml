@@ -1,14 +1,15 @@
+name: Web Tests
+
 on:
   push:
     branches:
-      - main  # Adjust the branch as needed
+      - main
   pull_request:
     branches:
-      - main  # Adjust the branch as needed
-name: ChromeDriver Setup 
-          
+      - main
+
 jobs:
-  build:
+  run_web_tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,22 +22,9 @@ jobs:
           distribution: 'adopt'
           java-version: '20'
 
-      - name: Cache Maven dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+      # Other setup steps if required
 
-      - name: Download and extract ChromeDriver
+      - name: Run Web Tests
         run: |
-          chromeDriverVersion="91.0.4472.101"
-          chromeDriverUrl="https://chromedriver.storage.googleapis.com/${chromeDriverVersion}/chromedriver_linux64.zip"
-          wget -q -O chromedriver_linux64.zip ${chromeDriverUrl}
-          unzip chromedriver_linux64.zip
-          chmod +x chromedriver
-          sudo mv chromedriver /usr/local/bin/
-
-      - name: Build and test
-        run: mvn test
+          cd src/test/java/saucedemo/web
+          mvn test
