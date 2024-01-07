@@ -35,10 +35,10 @@ public class InventoryPageObject extends BasePageObject{
         return logoutBtnSelector;
     }
 
-    public boolean isLogoutButtonPresentAndClickable() {
+    public boolean isLogoutButtonPresentAndClickable() { //zorgt ervoor dat tests niet crashen (anders blijven tests zoeken naar loguit knop als ze er niet zijn), wacht 1 seconde
         try {
             // Replace with the actual method to wait for the logout button to be clickable
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
             wait.until(ExpectedConditions.elementToBeClickable(getLogoutBtnSelector()));
             return true;
         } catch (TimeoutException e) {
