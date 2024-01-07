@@ -26,12 +26,11 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
+            
       - name: Install Chrome
         run: |
-         VERSION_STRING="114.0.5735.198-1 "
-          wget "https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${VERSION_STRING}_amd64.deb"
-          sudo dpkg -i "google-chrome-stable_${VERSION_STRING}_amd64.deb"
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
 
       - name: Set up ChromeDriver
         uses: nanasess/setup-chromedriver@v2.2.1
