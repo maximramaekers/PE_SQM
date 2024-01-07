@@ -1,12 +1,25 @@
-Feature: Login functionality for SauceDemo web application
+Feature: Login Error Handling
 
-  Scenario: User successfully logs out from the application
-    Given the user is on the SauceDemo login page
-    And the user logs in with username "standard_user" and password "secret_sauce"
-    When the user logs out
-    Then the user should be redirected to the login page
+  Scenario: Login with invalid credentials
+    Given the user is on the login page
+    When the user attempts to login with "invalid_user" and "secret_sauce"
+    Then the login page is displayed again
+    And an error message "Epic sadface: Username and password do not match any user in this service" is shown
 
-  Scenario: User successfully logs in to the application
-    Given the user is on the SauceDemo login page
-    When the user logs in with username "standard_user" and password "secret_sauce"
-    Then the logout button should be present on the inventory page
+  Scenario: Login with incorrect password
+    Given the user is on the login page
+    When the user attempts to login with "standard_user" and "incorrect_password"
+    Then the login page is displayed again
+    And an error message "Epic sadface: Username and password do not match any user in this service" is shown
+
+  Scenario: Login with incorrect username
+    Given the user is on the login page
+    When the user attempts to login with "invalid_user" and "secret_sauce"
+    Then the login page is displayed again
+    And an error message "Epic sadface: Username and password do not match any user in this service" is shown
+
+  Scenario: Login as locked out user
+    Given the user is on the login page
+    When the user attempts to login with "locked_out_user" and "secret_sauce"
+    Then the login page is displayed again
+    And an error message "Epic sadface: Sorry, this user has been locked out." is shown
