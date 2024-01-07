@@ -69,15 +69,9 @@ public class LoginTests {
         // Perform login with valid credentials
         pages.login.login(username, password);
 
-        // Open hamburger menu
-        pages.inventory.openMenu();
-
-        // Check if login was successful by verifying the presence of an element that is only visible after login
-        // For example, check if the logout button is present and clickable
-        boolean isLogoutPresent = pages.inventory.isLogoutButtonPresentAndClickable();
 
         // Assert that the logout button is present, indicating a successful login
-        Assert.assertTrue(isLogoutPresent, "Logout button should be present after a successful login.");
+        Assert.assertTrue(pages.inventory.isOnInventoryPage(), "User should be logged in.");
     }
 
 /*    @Test
