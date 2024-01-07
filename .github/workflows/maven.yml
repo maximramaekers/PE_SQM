@@ -5,7 +5,8 @@ on:
   pull_request:
     branches:
       - main  # Adjust the branch as needed
-
+name: ChromeDriver Setup 
+          
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,6 +28,15 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
+      - name: Download and extract ChromeDriver
+        run: |
+          chromeDriverVersion="91.0.4472.101"
+          chromeDriverUrl="https://chromedriver.storage.googleapis.com/${chromeDriverVersion}/chromedriver_linux64.zip"
+          wget -q -O chromedriver_linux64.zip ${chromeDriverUrl}
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          sudo mv chromedriver /usr/local/bin/
 
       - name: Build and test
         run: mvn test
