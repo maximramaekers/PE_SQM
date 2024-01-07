@@ -3,8 +3,10 @@ package postcodes.serviceObjects;
 import io.restassured.response.Response;
 import postcodes.models.Postcode;
 import postcodes.models.body.PostcodeBody;
+import postcodes.models.body.PostcodesBody;
 import saucedemo.web.pageObjects.BasePageObject;
 
+import postcodes.models.Postcodes;
 import static io.restassured.RestAssured.when;
 
 public class NearestPostcode extends BaseService {
@@ -17,7 +19,7 @@ public class NearestPostcode extends BaseService {
         return response;
     }
 
-    public PostcodeBody getNearestPostcode(String postcode) {
-        return Postcode.getPostcode(this.getNearestResponse(postcode));
+    public PostcodesBody getNearestPostcode(String postcode) {
+        return Postcode.getPostcodes(this.getNearestResponse(postcode));
     }
 }

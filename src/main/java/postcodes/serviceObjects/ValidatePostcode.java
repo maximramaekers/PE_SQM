@@ -2,7 +2,8 @@ package postcodes.serviceObjects;
 
 import io.restassured.response.Response;
 import postcodes.models.Postcode;
-import postcodes.models.body.PostcodeBody;
+import postcodes.models.Validation;
+
 import static io.restassured.RestAssured.when;
 
 public class ValidatePostcode extends BaseService {
@@ -15,7 +16,7 @@ public class ValidatePostcode extends BaseService {
         return response;
     }
 
-    public PostcodeBody getValidatePostcode(String postcode) {
-        return Postcode.getPostcode(this.getValidateResponse(postcode));
+    public Validation getValidatePostcode(String postcode) {
+        return Postcode.getValidationResponse(this.getValidateResponse(postcode));
     }
 }

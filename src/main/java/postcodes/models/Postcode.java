@@ -41,6 +41,10 @@ public class Postcode extends BaseModel {
     public static PostcodesBody getPostcodes(Response response){
         return gson.fromJson(response.body().asString(), PostcodesBody.class);
     }
+
+    public static Validation getValidationResponse(Response response){
+        return gson.fromJson(response.body().asString(), Validation.class);
+    }
 }
 
 class Codes{
