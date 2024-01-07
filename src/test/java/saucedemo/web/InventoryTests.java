@@ -1,12 +1,8 @@
 package saucedemo.web;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import saucedemo.web.pageObjects.SauceLabPages;
-
-import java.time.Duration;
 
 public class InventoryTests {
     final String username ="standard_user";
@@ -76,33 +72,6 @@ public class InventoryTests {
         pages.inventory.clickShoppingCart();
         Assert.assertTrue(pages.cart.isOnCartPage(), "Should land on cart Page.");
     }
-
-
-
-/*    @AfterTest
-    public void logout() {
-        if (pages.inventory.isLogoutButtonPresentAndClickable()) {
-            pages.inventory.logout();
-        }
-        else{teardown();}*/
-
-
-
-
 }
 
-/*    @Test
-public void correctLogout() { //hoe precies implementeren? problemen met aftermethod, boolean zetten misschien
-    pages.inventory.logout();
-    Assert.assertTrue(pages.login.isLoginPageDisplayed(), "Login page not displayed after logout");
-}*/
-
-/*  @Test
-public void correctLogin(){
-    Assert.assertNotNull(pages.inventory.getLogoutBtnSelector(), "Logout button not found after login");
-    //pages.inventory.navigateTo();
-    //assertThat("message").isEqualTo("other message");
-    //assertWithMessage("Incorrect").that(azea).IsEqualTo("zae")... mogelijk veel meer info
-    //System.out.println("test");
-}*/
 
