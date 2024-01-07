@@ -13,7 +13,7 @@ import static com.google.common.truth.Truth.assertThat;
 public class GetRandomPostcodeTest {
     private AllServices postcodeServices;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setup() {
         postcodeServices = new AllServices();
     }

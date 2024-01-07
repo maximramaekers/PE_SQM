@@ -14,12 +14,12 @@ public class LoginTests {
         pages = SauceLabPages.Init();
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void teardown() {
         pages.quit();
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         pages.login.navigateTo();
         //pages.login.login(username, "secret_sauce");
