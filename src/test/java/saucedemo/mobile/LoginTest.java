@@ -1,5 +1,6 @@
 package saucedemo.mobile;
 
+import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -7,6 +8,7 @@ import org.testng.annotations.Test;
 import saucedemo.mobile.screenObjects.SauceLabScreens;
 import saucedemo.web.pageObjects.SauceLabPages;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +16,7 @@ public class LoginTest {
     final String username ="standard_user";
     SauceLabScreens screens;
     @BeforeTest(alwaysRun = true)
-    public void setup() throws MalformedURLException {
+    public void setup() throws IOException, ParseException {
         screens = SauceLabScreens.init();
     }
 

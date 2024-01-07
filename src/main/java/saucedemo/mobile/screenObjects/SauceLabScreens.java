@@ -1,11 +1,13 @@
 package saucedemo.mobile.screenObjects;
 
 import io.appium.java_client.AppiumDriver;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import saucedemo.mobile.utils.DeviceUtil;
 import saucedemo.web.pageObjects.*;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class SauceLabScreens {
@@ -20,7 +22,7 @@ public class SauceLabScreens {
     public FinishPageObject finish;
 
 
-    private SauceLabScreens() throws MalformedURLException {
+    private SauceLabScreens() throws IOException, ParseException {
         driver = DeviceUtil.createMobileDriver();
         login = new LoginScreenObject(driver);
         inventory = new InventoryScreenObject(driver);
@@ -31,7 +33,7 @@ public class SauceLabScreens {
         finish = new FinishPageObject(driver);
     }
 
-    public static SauceLabScreens init() throws MalformedURLException {
+    public static SauceLabScreens init() throws IOException, ParseException {
         return new SauceLabScreens();
     }
 

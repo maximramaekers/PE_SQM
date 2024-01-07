@@ -1,9 +1,11 @@
 package saucedemo.mobile;
 
+import org.json.simple.parser.ParseException;
 import org.testng.annotations.*;
 import saucedemo.mobile.screenObjects.SauceLabScreens;
 import saucedemo.web.pageObjects.SauceLabPages;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 public class ShoppingCartTest {
@@ -12,7 +14,7 @@ public class ShoppingCartTest {
     SauceLabScreens screens;
 
     @BeforeTest(alwaysRun = true)
-    public void setup() throws MalformedURLException {
+    public void setup() throws IOException, ParseException {
         screens = SauceLabScreens.init();
     }
 
