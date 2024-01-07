@@ -18,15 +18,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '20'
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-            
+          
       - name: Install Chrome and dependencies
         run: |
           sudo apt-get update
