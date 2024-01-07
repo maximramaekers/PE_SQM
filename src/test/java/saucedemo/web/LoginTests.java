@@ -19,7 +19,7 @@ public class LoginTests {
         pages.quit();
     }
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod
     public void login() {
         pages.login.navigateTo();
         //pages.login.login(username, "secret_sauce");
