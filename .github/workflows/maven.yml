@@ -1,3 +1,4 @@
+name: ChromeDriver Setup
 on:
   push:
     branches:
@@ -5,12 +6,10 @@ on:
   pull_request:
     branches:
       - main  # Adjust the branch as needed
-name: ChromeDriver Setup 
-          
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,6 +27,11 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
+      - name: Set up ChromeDriver
+        uses: nanasess/setup-chromedriver@v2.2.1
+        with:
+          chromedriver-version: '91.0.4472.101'
 
       - name: Download and extract ChromeDriver
         run: |
