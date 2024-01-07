@@ -14,7 +14,7 @@ public class LoginTests {
         pages = SauceLabPages.Init();
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterTest
     public void teardown() {
         pages.quit();
     }
