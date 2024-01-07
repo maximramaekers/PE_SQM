@@ -27,7 +27,6 @@ public class CheckoutTests {
     @BeforeTest
     public void AddToInventory(){
 
-
     }
 
     @Test
@@ -48,9 +47,9 @@ public class CheckoutTests {
     @Test
     public void userCanFillInInfoAndContinueToOverviewAndSeeItemIsInCart(){
         pages.checkoutstepone.navigateTo();
-        //Adds information to field
-        pages.checkoutstepone.addInformationToInfoFields();
         //Fills in info
+        pages.checkoutstepone.addInformationToInfoFields();
+        //Continues to checkout step two
         pages.checkoutstepone.clickContinueToCheckoutStepTwo();
         //checks if item is in step two
         pages.checkoutsteptwo.itemIsInCart();
@@ -61,9 +60,9 @@ public class CheckoutTests {
         pages.checkoutstepone.navigateTo();
         //Adds information to field
         pages.checkoutstepone.addInformationToInfoFields();
-        //Fills in info
+        //goes to step two
         pages.checkoutstepone.clickContinueToCheckoutStepTwo();
-        //checks if item is in step two
+        //goes back to step one
         pages.checkoutsteptwo.clickBackToStepOne();
     }
     @Test
@@ -71,9 +70,9 @@ public class CheckoutTests {
         pages.checkoutstepone.navigateTo();
         //Adds information to field
         pages.checkoutstepone.addInformationToInfoFields();
-        //Fills in info
+        //continues to checkout step 2
         pages.checkoutstepone.clickContinueToCheckoutStepTwo();
-        //checks if item is in step two
+        //continues to finish page
         pages.checkoutsteptwo.clickContinueToFinishPage();
     }
 
@@ -82,11 +81,11 @@ public class CheckoutTests {
         pages.checkoutstepone.navigateTo();
         //Adds information to field
         pages.checkoutstepone.addInformationToInfoFields();
-        //Fills in info
+        //continues to checkout step 2
         pages.checkoutstepone.clickContinueToCheckoutStepTwo();
-        //checks if item is in step two
+        //continues to finish page
         pages.checkoutsteptwo.clickContinueToFinishPage();
-        //checks if item is in step two
+        //goes back to inventory
         pages.finish.clickBackToInventory();
         //checks if on inventory
         pages.inventory.isOnInventoryPage();

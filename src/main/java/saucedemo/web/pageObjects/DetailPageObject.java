@@ -30,8 +30,6 @@ public class DetailPageObject extends BasePageObject {
         WebElement backToProducts = driver.findElement(backToProductsSelector);
         backToProducts.click();
     }
-
-
     public boolean itemTitleSelectorIsPresent() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));

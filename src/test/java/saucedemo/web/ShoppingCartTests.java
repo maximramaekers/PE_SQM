@@ -3,8 +3,6 @@ package saucedemo.web;
 import org.testng.annotations.*;
 import saucedemo.web.pageObjects.SauceLabPages;
 
-import java.time.Duration;
-
 public class ShoppingCartTests {
     final String username ="standard_user";
 
