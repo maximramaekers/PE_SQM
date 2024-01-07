@@ -5,7 +5,7 @@ import saucedemo.web.pageObjects.SauceLabPages;
 
 public class CheckoutTests {
     final String username ="standard_user";
-
+//TODO: ADD ASSERTS + change comments
     SauceLabPages pages;
 
     @BeforeTest(alwaysRun = true)
@@ -46,7 +46,7 @@ public class CheckoutTests {
     }
 
     @Test
-    public void userCanFillInInfoAndContinueToOverview(){
+    public void userCanFillInInfoAndContinueToOverviewAndSeeItemIsInCart(){
         pages.checkoutstepone.navigateTo();
         //Adds information to field
         pages.checkoutstepone.addInformationToInfoFields();
@@ -54,5 +54,41 @@ public class CheckoutTests {
         pages.checkoutstepone.clickContinueToCheckoutStepTwo();
         //checks if item is in step two
         pages.checkoutsteptwo.itemIsInCart();
+    }
+
+    @Test
+    public void userCanGoBackFromStepTwoToStepOneCheckout(){
+        pages.checkoutstepone.navigateTo();
+        //Adds information to field
+        pages.checkoutstepone.addInformationToInfoFields();
+        //Fills in info
+        pages.checkoutstepone.clickContinueToCheckoutStepTwo();
+        //checks if item is in step two
+        pages.checkoutsteptwo.clickBackToStepOne();
+    }
+    @Test
+    public void userCanFinishOrder(){
+        pages.checkoutstepone.navigateTo();
+        //Adds information to field
+        pages.checkoutstepone.addInformationToInfoFields();
+        //Fills in info
+        pages.checkoutstepone.clickContinueToCheckoutStepTwo();
+        //checks if item is in step two
+        pages.checkoutsteptwo.clickContinueToFinishPage();
+    }
+
+    @Test
+    public void userCanGoBackToHomeAfterFinishingOrder(){
+        pages.checkoutstepone.navigateTo();
+        //Adds information to field
+        pages.checkoutstepone.addInformationToInfoFields();
+        //Fills in info
+        pages.checkoutstepone.clickContinueToCheckoutStepTwo();
+        //checks if item is in step two
+        pages.checkoutsteptwo.clickContinueToFinishPage();
+        //checks if item is in step two
+        pages.finish.clickBackToInventory();
+        //checks if on inventory
+        pages.inventory.isOnInventoryPage();
     }
 }
