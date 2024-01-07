@@ -1,5 +1,3 @@
-name: Web Tests
-
 on:
   push:
     branches:
@@ -20,11 +18,9 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '20'
-
-      # Other setup steps if required
+          java-version: '11'  # Adjust Java version as needed
 
       - name: Run Web Tests
         run: |
-          cd src/test/java/saucedemo/web
+          cd test/java/saucedemo/web
           mvn test
