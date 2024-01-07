@@ -5,22 +5,20 @@ import org.testng.annotations.Test;
 import postcodes.models.body.PostcodeBody;
 import postcodes.serviceObjects.AllServices;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static com.google.common.truth.Truth.assertThat;
 
-public class LookUpPostCodeTest {
+public class ValidatePostcodesTest {
     private AllServices postcodeServices;
 
     @BeforeClass
     public void setup() {
         postcodeServices = new AllServices();
     }
-    @Test
-    public void LookUpPostCode(){
-        PostcodeBody response = postcodeServices.lookupPostcode.getLookupPostcode("NW5 1AD");
-        assertThat(response.result.latitude).isEqualTo(51.553646);
-        assertThat(response.result.longitude).isEqualTo(-0.141062);
-    }
+
+///*    @Test
+//    public void ValidatePostCode(){
+//        PostcodeBody response = postcodeServices.validatePostcode.getValidatePostcode("NW5 1AD");
+//        System.out.println(response.result.postcode);
+//        //assertThat(response.result.).isEqualTo("true");
+//    }*/
 }

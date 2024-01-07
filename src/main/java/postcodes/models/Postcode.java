@@ -1,7 +1,8 @@
 package postcodes.models;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import io.restassured.response.Response;
-import postcodes.models.body.BaseBody;
 import postcodes.models.body.PostcodeBody;
 import postcodes.models.body.PostcodesBody;
 
