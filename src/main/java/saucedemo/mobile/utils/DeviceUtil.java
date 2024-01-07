@@ -32,7 +32,7 @@ public class DeviceUtil {
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
             capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
             capabilities.setCapability(AndroidMobileCapabilityType.BROWSER_NAME, "Chrome");
-            //capabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, chromedriverExecutable);
+            capabilities.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, chromedriverExecutable);
             driver = new AndroidDriver(new URL("http://localhost:4723/"), capabilities);
 
         return driver;
