@@ -9,7 +9,7 @@ public class LoginTests {
 
     SauceLabPages pages;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeTest
     public void setup() {
         pages = SauceLabPages.Init();
     }
