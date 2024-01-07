@@ -8,6 +8,8 @@ public class SauceLabPages {
     public InventoryPageObject inventory;
     public DetailPageObject detail;
     public CartPageObject cart;
+    public CheckoutStepOnePageObject checkoutstepone;
+    public CheckoutStepTwoPageObject checkoutsteptwo;
     private WebDriver driver;
 
     private SauceLabPages() {
@@ -16,6 +18,8 @@ public class SauceLabPages {
         inventory = new InventoryPageObject(driver);
         detail = new DetailPageObject(driver);
         cart = new CartPageObject(driver);
+        checkoutstepone = new CheckoutStepOnePageObject(driver);
+        checkoutsteptwo = new CheckoutStepTwoPageObject(driver);
     }
 
     public static SauceLabPages Init() {
