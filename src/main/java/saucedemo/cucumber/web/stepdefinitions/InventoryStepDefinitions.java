@@ -69,10 +69,13 @@ public class InventoryStepDefinitions {
         assertTrue(pages.cart.itemIsInCart());
     }
 
-    @Then("the user should be on the inventory page")
-    public void theUserShouldBeOnTheInventoryPage() {
-        assertTrue(pages.inventory.isOnInventoryPage());
+
+
+    @Then("the user should be on the inventory page from inventory actions")
+    public void theUserShouldBeOnTheInventoryPageFromInventoryActions() {
+        assertTrue("User should be on the inventory page after inventory actions", pages.inventory.isOnInventoryPage());
     }
+
 
     @Then("the user should be on the cart page")
     public void theUserShouldBeOnTheCartPage() {

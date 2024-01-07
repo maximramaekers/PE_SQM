@@ -14,7 +14,7 @@ Feature: Inventory Management
   Scenario: User can navigate back to inventory page from the detail page
     Given the user is logged in and on a product detail page
     When the user navigates back to the inventory page from the detail page
-    Then the user should be on the inventory page
+    Then the user should be on the inventory page from inventory actions
 
   Scenario: User can navigate to the cart page
     Given the user is logged in and on the inventory page
