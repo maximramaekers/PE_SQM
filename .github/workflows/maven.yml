@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '20'
+          java-version: '11'  # Java 20 is not a standard version, use a LTS version like 11 or 17
 
       - name: Cache Maven dependencies
         uses: actions/cache@v2
@@ -31,17 +31,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-
-      - name: Set up ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
-        with:
-          chromedriver-version: '88.0.4324.96'
-
-      - name: Set up display and start ChromeDriver
-        run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
