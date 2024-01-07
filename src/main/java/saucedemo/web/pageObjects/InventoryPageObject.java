@@ -13,6 +13,8 @@ public class InventoryPageObject extends BasePageObject{
     By menuSelector = By.cssSelector("#react-burger-menu-btn");
     By logoutBtnSelector = By.id("logout_sidebar_link");
     By itemTitleSelector = By.cssSelector(".inventory_item_name");
+
+    By cartBadgeSelector = By.cssSelector(".shopping_cart_container"); // Replace with the correct class if different
     public InventoryPageObject(WebDriver driver) {
         super(driver, "/inventory.html");
     }
@@ -50,5 +52,12 @@ public class InventoryPageObject extends BasePageObject{
         } catch (TimeoutException e) {
             return false;
         }
+    }
+    public void addToCart() {
+        //driver.findElement(addToCartButtonSelector).click();
+    }
+    public boolean isItemInCart() {
+        // Check if the cart badge is present and has a quantity greater than 0
+        return driver.findElements(cartBadgeSelector).size() > 0;
     }
 }

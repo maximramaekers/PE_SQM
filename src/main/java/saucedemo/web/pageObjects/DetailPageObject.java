@@ -15,8 +15,15 @@ public class DetailPageObject extends BasePageObject {
 
     By InventoryDetailsSelector = By.cssSelector(".inventory_details");
 
+    By addToCartDetailButtonSelector = By.id("add-to-cart-sauce-labs-backpack"); // Replace with the correct ID
+
+
     public By getItemTitleSelector() {
         return InventoryDetailsSelector;
+    }
+
+    public void addToCart() {
+        driver.findElement(addToCartDetailButtonSelector).click();
     }
 
 
