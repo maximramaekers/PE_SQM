@@ -14,13 +14,12 @@ public class DetailPageObject extends BasePageObject {
         super(driver, "/inventory-item.html?id=0");
     }
 
-    By InventoryDetailsSelector = By.cssSelector(".inventory_details");
-
+    By inventoryDetailsSelector = By.cssSelector(".inventory_details");
     By addToCartDetailButtonSelector = By.id("add-to-cart-sauce-labs-backpack");
     By backToProductsSelector = By.cssSelector(".btn.btn_secondary.back.btn_large.inventory_details_back_button");
 
     public By getItemTitleSelector() {
-        return InventoryDetailsSelector;
+        return inventoryDetailsSelector;
     }
 
     public void addToCart() {
