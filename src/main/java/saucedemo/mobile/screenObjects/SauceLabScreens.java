@@ -1,11 +1,10 @@
 package saucedemo.mobile.screenObjects;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import saucedemo.mobile.utils.DeviceUtil;
-import saucedemo.web.pageObjects.CartPageObject;
-import saucedemo.web.pageObjects.DetailPageObject;
-import saucedemo.web.pageObjects.InventoryPageObject;
+import saucedemo.web.pageObjects.*;
 
 import java.net.MalformedURLException;
 
@@ -16,6 +15,10 @@ public class SauceLabScreens {
     public CartScreenObject cart;
     private AppiumDriver driver;
 
+    public CheckoutStepOneScreenObject checkoutstepone;
+    public CheckoutStepTwoScreenObject checkoutsteptwo;
+    public FinishPageObject finish;
+
 
     private SauceLabScreens() throws MalformedURLException {
         driver = DeviceUtil.createMobileDriver();
@@ -23,6 +26,9 @@ public class SauceLabScreens {
         inventory = new InventoryScreenObject(driver);
         detail = new DetailScreenObject(driver);
         cart = new CartScreenObject(driver);
+        checkoutstepone = new CheckoutStepOneScreenObject(driver);
+        checkoutsteptwo = new CheckoutStepTwoScreenObject(driver);
+        finish = new FinishPageObject(driver);
     }
 
     public static SauceLabScreens init() throws MalformedURLException {

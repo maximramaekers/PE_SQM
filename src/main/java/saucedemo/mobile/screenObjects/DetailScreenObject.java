@@ -17,7 +17,7 @@ public class DetailScreenObject extends BaseAppiumPageObject {
 
     By InventoryDetailsSelector = By.cssSelector(".inventory_details");
 
-    By addToCartDetailButtonSelector = By.id("add-to-cart-sauce-labs-backpack"); // Replace with the correct ID
+    By addToCartDetailButtonSelector = By.id("add-to-cart-sauce-labs-backpack");
 
     By backToProductsSelector = By.cssSelector(".btn.btn_secondary.back.btn_large.inventory_details_back_button");
 
