@@ -5,10 +5,7 @@ import org.testng.annotations.*;
 import saucedemo.web.pageObjects.SauceLabPages;
 
 public class LoginErrorTests {
-    final String username ="standard_user";
-
     SauceLabPages pages;
-    private boolean shouldLogout = true;
 
     @BeforeTest(alwaysRun = true)
     public void setup() {
@@ -32,8 +29,8 @@ public class LoginErrorTests {
     }
 
     @Test
-    public void testErrorMessageDisplayOnFailedLogin() {
-        pages.login.login("invalid_user", "secret_sauce");
+    public void testErrorMessageDisplayOnIncorrectUsernameAndPassword() {
+        pages.login.login("invalid_user", "wrong_password");
         // Implement a method to retrieve the actual error message from the page
         String actualErrorMessage = pages.login.getErrorMessage();
         String expectedErrorMessage = "Epic sadface: Username and password do not match any user in this service";

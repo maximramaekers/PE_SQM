@@ -12,6 +12,7 @@ import java.time.Duration;
 public class InventoryPageObject extends BasePageObject{
     By menuSelector = By.cssSelector("#react-burger-menu-btn");
     By logoutBtnSelector = By.id("logout_sidebar_link");
+    By itemTitleSelector = By.cssSelector(".inventory_item_name");
     public InventoryPageObject(WebDriver driver) {
         super(driver, "/inventory.html");
     }
@@ -24,6 +25,11 @@ public class InventoryPageObject extends BasePageObject{
     public void clickLogout() {
         WebElement logoutBtn = wait.until(ExpectedConditions.elementToBeClickable(logoutBtnSelector));
         logoutBtn.click();
+    }
+
+    public void clickItemTitle() {
+        WebElement itemTitle = wait.until(ExpectedConditions.elementToBeClickable(itemTitleSelector));
+        itemTitle.click();
     }
 
     public void logout() {
