@@ -10,6 +10,7 @@ public class SauceLabPages {
     public CartPageObject cart;
     public CheckoutStepOnePageObject checkoutstepone;
     public CheckoutStepTwoPageObject checkoutsteptwo;
+    public FinishPageObject finish;
     private WebDriver driver;
 
     private SauceLabPages() {
@@ -20,6 +21,7 @@ public class SauceLabPages {
         cart = new CartPageObject(driver);
         checkoutstepone = new CheckoutStepOnePageObject(driver);
         checkoutsteptwo = new CheckoutStepTwoPageObject(driver);
+        finish = new FinishPageObject(driver);
     }
 
     public static SauceLabPages Init() {
