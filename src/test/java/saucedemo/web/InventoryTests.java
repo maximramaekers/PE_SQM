@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class InventoryTests {
     final String username ="standard_user";
-
+    //TODO: ADD CATEGORIES TO TESTS
     SauceLabPages pages;
 
     @BeforeTest(alwaysRun = true)
