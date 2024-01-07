@@ -44,6 +44,40 @@ public class InventoryTests {
         Assert.assertTrue(pages.detail.itemTitleSelectorIsPresent(), "Detail page should be displayed after clicking on the product name.");
     }
 
+    @Test
+    public void testAddItemToCartFromDetailPage() {
+        // Navigate to the detail page of the first item
+        pages.inventory.navigateTo();
+        // Click item on inventory page
+        pages.inventory.clickItemTitle();
+        // Click the "Add to cart" button
+        pages.detail.addToCart();
+        // Verify that the item has been added to the cart
+        // This is done in Cart POM
+        // first navigate to the cart itself
+        pages.cart.navigateTo();
+        Assert.assertTrue(pages.cart.itemIsInCart(), "Item should be in the cart after adding.");
+    }
+
+    @Test
+    public void testNavigateBackToInventoryPageFromDetailPage() {
+        // Navigate to the detail page of the first item
+        pages.detail.navigateTo();
+        // Click item on inventory page
+        pages.detail.clickBackToProducts();
+        Assert.assertTrue(pages.inventory.isOnInventoryPage(), "Should land on inventory Page.");
+    }
+
+    @Test
+    public void testAbleToClickAndNavigateToCartPage() {
+        // Navigate to the inventory
+        pages.inventory.navigateTo();
+        // Click shopping button
+        pages.inventory.clickShoppingCart();
+        Assert.assertTrue(pages.cart.isOnCartPage(), "Should land on cart Page.");
+    }
+
+
 
 /*    @AfterTest
     public void logout() {

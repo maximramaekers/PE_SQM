@@ -10,9 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class InventoryPageObject extends BasePageObject{
+
     By menuSelector = By.cssSelector("#react-burger-menu-btn");
     By logoutBtnSelector = By.id("logout_sidebar_link");
     By itemTitleSelector = By.cssSelector(".inventory_item_name");
+    By goToShoppingBasketSelector = By.cssSelector(".shopping_cart_container");
+
 
     By cartBadgeSelector = By.cssSelector(".shopping_cart_container"); // Replace with the correct class if different
     public InventoryPageObject(WebDriver driver) {
@@ -32,6 +35,11 @@ public class InventoryPageObject extends BasePageObject{
     public void clickItemTitle() {
         WebElement itemTitle = wait.until(ExpectedConditions.elementToBeClickable(itemTitleSelector));
         itemTitle.click();
+    }
+
+    public void clickShoppingCart() {
+        WebElement shoppingCart = wait.until(ExpectedConditions.elementToBeClickable(goToShoppingBasketSelector));
+        shoppingCart.click();
     }
 
     public void logout() {
@@ -56,8 +64,9 @@ public class InventoryPageObject extends BasePageObject{
     public void addToCart() {
         //driver.findElement(addToCartButtonSelector).click();
     }
-    public boolean isItemInCart() {
-        // Check if the cart badge is present and has a quantity greater than 0
-        return driver.findElements(cartBadgeSelector).size() > 0;
+
+    public boolean isOnInventoryPage(){
+        String currentUrl = driver.getCurrentUrl();
+        return currentUrl.contains("/inventory.html");
     }
 }

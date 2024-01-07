@@ -10,10 +10,10 @@ import java.time.Duration;
 
 public class CartPageObject extends BasePageObject {
     public CartPageObject(WebDriver driver) {
-        super(driver, "cart.html");
+        super(driver, "/cart.html");
     }
 
-    By CartItemSelector = By.cssSelector(".cart_item");
+    By CartItemSelector = By.cssSelector(".cart_item_label");
 
     public By getCartItemSelector() {
         return CartItemSelector;
@@ -28,6 +28,11 @@ public class CartPageObject extends BasePageObject {
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public boolean isOnCartPage(){
+        String currentUrl = driver.getCurrentUrl();
+        return currentUrl.contains("/cart");
     }
 
 }
