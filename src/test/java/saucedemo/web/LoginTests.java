@@ -53,13 +53,21 @@ public class LoginTests {
         //System.out.println("test");
     }*/
 
-    @Test
-    public void testValidLogin() {
+
+    @DataProvider(name = "loginData")
+    public Object[][] getData() {
+        return new Object[][] {
+                {"standard_user", "secret_sauce"},
+                {"locked_out_user", "secret_sauce"},
+        };
+    }
+    @Test (dataProvider = "loginData")
+    public void testValidLogin(String username, String password) {
         // Navigate to the login page
         pages.login.navigateTo();
 
         // Perform login with valid credentials
-        pages.login.login(username, "secret_sauce");
+        pages.login.login(username, password);
 
         // Open hamburger menu
         pages.inventory.openMenu();
