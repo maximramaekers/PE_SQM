@@ -67,8 +67,8 @@ public class InventoryStepDefinitions {
         assertTrue("Item should be in the cart after adding.", pages.cart.itemIsInCart());
     }
 
-    @Then("the user should land on the inventory page")
-    public void user_should_land_on_inventory_page() {
+    @Then("the user should land on the inventory page from the product")
+    public void the_user_should_land_on_inventory_page_from_product() {
         assertTrue("Should land on inventory Page.", pages.inventory.isOnInventoryPage());
     }
 
