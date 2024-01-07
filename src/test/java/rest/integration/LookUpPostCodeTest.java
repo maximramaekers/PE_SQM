@@ -17,7 +17,7 @@ public class LookUpPostCodeTest {
     public void setup() {
         postcodeServices = new AllServices();
     }
-    @Test
+    @Test(groups = {"integration"})
     public void LookUpPostCode(){
         PostcodeBody response = postcodeServices.lookupPostcode.getLookupPostcode("NW5 1AD");
         assertThat(response.result.latitude).isEqualTo(51.553646);

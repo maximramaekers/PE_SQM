@@ -17,7 +17,7 @@ public class ValidatePostcodesTest {
         postcodeServices = new AllServices();
     }
 
-    @Test
+    @Test(groups = {"integration"})
     public void ValidatePostCode(){
         Validation response = postcodeServices.validatePostcode.getValidatePostcode("NW5 1AD");
         assertThat(response.result).isEqualTo(true);

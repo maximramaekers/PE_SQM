@@ -18,7 +18,7 @@ public class GetRandomPostcodeTest {
         postcodeServices = new AllServices();
     }
 
-    @Test
+    @Test(groups = {"integration"})
     public void GetRandomPostcode() {
         Set<String> postcodes = new HashSet<>();
         for (int i = 0; i < 10; i++) {

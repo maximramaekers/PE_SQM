@@ -18,7 +18,7 @@ public class NearestPostcodeTest {
     public void setup() {
         postcodeServices = new AllServices();
     }
-    @Test
+    @Test(groups = {"integration"})
     public void NearestPostCode(){
         PostcodesBody response = postcodeServices.nearestPostcode.getNearestPostcode("NW5 1AD");
 
