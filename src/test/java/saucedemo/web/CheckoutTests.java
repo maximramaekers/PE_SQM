@@ -5,7 +5,6 @@ import saucedemo.web.pageObjects.SauceLabPages;
 
 public class CheckoutTests {
     final String username ="standard_user";
-//TODO: ADD ASSERTS + change comments
     SauceLabPages pages;
 
     @BeforeTest(alwaysRun = true)
