@@ -5,8 +5,6 @@ import org.testng.annotations.*;
 import saucedemo.web.pageObjects.SauceLabPages;
 
 public class LoginTests {
-    final String username ="standard_user";
-
     SauceLabPages pages;
 
     @BeforeTest(alwaysRun = true)
@@ -22,7 +20,6 @@ public class LoginTests {
     @BeforeMethod
     public void login() {
         pages.login.navigateTo();
-        //pages.login.login(username, "secret_sauce");
     }
 
     @DataProvider(name = "loginData")
@@ -39,7 +36,6 @@ public class LoginTests {
 
         // Perform login with valid credentials
         pages.login.login(username, password);
-
 
         // Assert that the logout button is present, indicating a successful login
         Assert.assertTrue(pages.inventory.isOnInventoryPage(), "User should be logged in.");

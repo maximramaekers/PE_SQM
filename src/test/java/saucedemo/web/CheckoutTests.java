@@ -23,11 +23,6 @@ public class CheckoutTests {
         pages.login.login(username, "secret_sauce");
     }
 
-    @BeforeTest
-    public void AddToInventory(){
-
-    }
-
     @Test
     public void userCanGoBackToShoppingCart(){
         pages.inventory.navigateTo();

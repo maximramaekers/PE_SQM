@@ -28,11 +28,6 @@ public class CheckoutTest {
         screens.login.login(username, "secret_sauce");
     }
 
-    @BeforeTest
-    public void AddToInventory(){
-
-
-    }
 
     @Test
     public void userCanGoBackToShoppingCart(){
